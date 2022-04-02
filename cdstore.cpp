@@ -1,4 +1,3 @@
-#include <exception>
 #include <iostream>
 #include "cd.h"
 #include <map>
@@ -88,9 +87,8 @@ int main (int argc, char *argv[])
   std::cin >> choice;
   switch (choice) {
   case 1:{
-    std::cout << "Nhap ten CD ma ban muon them:" << std::endl;
     CD cdinput = CD();
-    CDstore[cdinput.name] = cdinput;
+    CDstore.insert(std::make_pair(cdinput.name, cdinput));
     std::cout << "CD da duoc them" << std::endl;
     goto Menu;
   }
