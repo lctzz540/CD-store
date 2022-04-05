@@ -3,6 +3,7 @@
 #include <map>
 #include <string>
 
+//Menu chinh cua chuong trinh
 void menu(){
   std::cout << "==============================================" << std::endl;
   std::cout << "Day la phan mem quan ly mua ban va thue dia CD" << std::endl;
@@ -15,6 +16,7 @@ void menu(){
   std::cout << "==============================================" << std::endl;
 }
 
+//Xu ly CD theo menu 2
 void action2(CD CD_selected){
   int selected;
   std::cin >> selected;
@@ -47,11 +49,15 @@ void action2(CD CD_selected){
       std::cout << "Doanh thu cua CD la:" << CD_selected.current_revenue << std::endl;
     }
     case 5:{
+      cout << CD_selected.name << "hien dang cho thue" << CD_selected.for_rent << "CD" << std::endl;
+    }
+    case 6:{
       break;
     }
   }
 }
 
+//Menu 2
 void actionmenu2(CD CD_selected){
   std::cout << "==============================================" << std::endl;
   std::cout << "CD ban chon la" << CD_selected.name << std::endl;
@@ -59,18 +65,21 @@ void actionmenu2(CD CD_selected){
   std::cout << "2. Cho thue CD" << std::endl;
   std::cout << "3. Tra lai CD" << std::endl;
   std::cout << "4. Tinh doanh thu cua CD" << std::endl;
-  std::cout << "5. Tro ve" << std::endl;
+  std::cout << "5. So CD dang cho thue" << std::endl;
+  std::cout << "6. Tro ve" << std::endl;
   std::cout << "Lua chon cua ban la?" << std::endl;
   std::cout << "==============================================" << std::endl;
   action2(CD_selected);
 }
 
+//Duyet map va in ten CD
 void dump(map<string,CD>& mp){
   for (auto x: mp) {
     std::cout << x.first << std::endl;
   }
 }
 
+//Tinh tong cong doanh thu
 void totalcal(map<string,CD>& mp){
   float total = 0;
   for (auto x: mp) {
@@ -80,31 +89,35 @@ void totalcal(map<string,CD>& mp){
 
 int main (int argc, char *argv[])
 {
+  //Tao map de luu tru thong tin CD
   map<string, CD> CDstore;
+  //Tao mot label Menu de quay ve``
   Menu:
+  //In ra menu
   menu();
   int choice;
   std::cin >> choice;
+  //Lua chon cua nguoi dung theo cac chuc nang cua menu
   switch (choice) {
-  case 1:{
-    CD cdinput = CD();
-    CDstore.insert(std::make_pair(cdinput.name, cdinput));
-    std::cout << "CD da duoc them" << std::endl;
-    goto Menu;
-  }
-  case 2:
-    if(CDstore.empty()) cout << "Khong co CD nao! Moi them CD" << std::endl;
-    else{
-      Choice:
-      std::cout << "Ten CD:" << std::endl;
-      string cdname;
-      std::cin >> cdname;
-      try {
-        actionmenu2(CDstore[cdname]);
-      } catch (...) {
-        goto Choice;
-      };
+    case 1:{
+      CD cdinput = CD();
+      CDstore.insert(std::make_pair(cdinput.name, cdinput));
+      std::cout << "CD da duoc them" << std::endl;
+      goto Menu;
     }
+    case 2:
+      if(CDstore.empty()) cout << "Khong co CD nao! Moi them CD" << std::endl;
+      else{
+        Choice:
+        std::cout << "Ten CD:" << std::endl;
+        string cdname;
+        std::cin >> cdname;
+        try {
+          actionmenu2(CDstore[cdname]);
+        } catch (...) {
+          goto Choice;
+        };
+      }
     goto Menu;
   case 3:
     std::cout << "Danh sach CD hien co" << std::endl;
@@ -116,7 +129,8 @@ int main (int argc, char *argv[])
   case 5:
     break;
   default:
-    std::cin >> choice;
+    std::cout << "Chon lai" << std::endl;
+    goto Menu;
   }
   return 0;
 }
