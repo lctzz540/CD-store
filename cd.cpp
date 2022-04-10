@@ -10,27 +10,27 @@ CD::CD(){
   std::cout << "Nhap gia thue CD" << std::endl;
   std::cin >> this->rent_price;
   std::cout << "So luong nhap vao" << std::endl;
-  std::cin >> this->amount;
+  std::cin >> this->quantity;
   this->rented = 0;
-  this->selled = 0;
+  this->sold = 0;
 }
 //Phuong thuc cho thue
 void CD::CDrental(){
-  if (this->amount != 0) {
+  if (this->quantity != 0) {
     this->rented ++;
-    this->amount --;
-    this->current_revenue = this->rented * this->rent_price + this->selled*this->price;
+    this->quantity --;
+    this->current_revenue = this->rented * this->rent_price + this->sold*this->price;
     this->for_rent ++;
   }else {
     std::cout << "Sorry this CD is no longer available" << std::endl;
   }
 }
 //Phuong thuc ban
-void CD::CDsell(){
-  if(this->amount != 0){
-    this->selled ++;
-    this->amount --;
-    this->current_revenue = this->rented * this->rent_price + this->selled*this->price;
+void CD::CDsales(){
+  if(this->quantity != 0){
+    this->sold ++;
+    this->quantity --;
+    this->current_revenue = this->rented * this->rent_price + this->sold*this->price;
   }
   else{
     std::cout << "Sorry this CD is no longer available" << std::endl;
@@ -38,7 +38,7 @@ void CD::CDsell(){
 }
 //Phuong thuc tra CD
 void CD::CDreturn(){
-  this->amount ++;
+  this->quantity ++;
   this->for_rent --;
 }
 //Phuong thuc tinh doanh thu cua CD

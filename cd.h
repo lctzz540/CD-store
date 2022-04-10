@@ -9,15 +9,15 @@ class CD{
     string name;
     float price;
     float rent_price;
-    int amount;
+    int quantity;
     int rented;
-    int selled;
+    int sold;
     int for_rent;
     float current_revenue;
     //Cac phuong thuc cua CD
     CD();
     void CDrental();
-    void CDsell();
+    void CDsales();
     void CDreturn();
     void revenue();
 };

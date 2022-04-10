@@ -26,7 +26,7 @@ void action2(CD CD_selected){
       int n;
       std::cin >> n;
       for (int i = 0; i < n; i++){
-        CD_selected.CDsell();
+        CD_selected.CDsales();
       }
     }
     case 2:{
