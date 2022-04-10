@@ -38,8 +38,13 @@ void CD::CDsales(){
 }
 //Phuong thuc tra CD
 void CD::CDreturn(){
-  this->quantity ++;
-  this->for_rent --;
+  if(for_rent != 0){
+    this->quantity ++;
+    this->for_rent --;
+  } else
+  {
+    std::cout << "Currently no one is renting this type of CD" << std::endl;
+  }
 }
 //Phuong thuc tinh doanh thu cua CD
 void CD::revenue(){
