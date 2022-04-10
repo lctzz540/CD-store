@@ -19,6 +19,7 @@ void menu(){
 //Xu ly CD theo menu 2
 void action2(CD CD_selected){
   int selected;
+  Choice2:
   std::cin >> selected;
   switch (selected) {
     case 1:{
@@ -53,6 +54,10 @@ void action2(CD CD_selected){
     }
     case 6:{
       break;
+    }
+    default:{
+      std::cout << "Khong hop le, moi nhap lai" << std::endl;
+      goto Choice2;
     }
   }
 }
