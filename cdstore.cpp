@@ -26,8 +26,18 @@ void action2(CD CD_selected){
       std::cout << "So luong: " << std::endl;
       int n;
       std::cin >> n;
-      for (int i = 0; i < n; i++){
-        CD_selected.CDsales();
+      if (n > CD_selected.quantity){
+        std::cout << "Khong du hang, con thieu " << n - CD_selected.quantity << std::endl;
+        int sale = CD_selected.quantity;
+        for (int i = 0; i < sale; i++){
+          CD_selected.CDsales();
+        };
+        std::cout << CD_selected.name << " da ban "<< sale << " con lai "<< CD_selected.quantity << std::endl;
+      }else {
+        for (int i = 0; i < n; i++){
+          CD_selected.CDsales();
+        };
+      std::cout << CD_selected.name << " da ban "<< n << " con lai "<< CD_selected.quantity << std::endl;
       }
       break;
     }
@@ -35,9 +45,19 @@ void action2(CD CD_selected){
       std::cout << "So luong: " << std::endl;
       int n;
       cin >> n;
-      for (int i = 0; i < n; i++){
-        CD_selected.CDrental();
-      }
+      if (n > CD_selected.quantity){
+        std::cout << "Khong du hang, con thieu " << n - CD_selected.quantity << std::endl;
+        int rent = CD_selected.quantity;
+        for (int i = 0; i < rent; i++){
+          CD_selected.CDrental();
+        };
+        std::cout << CD_selected.name << " cho thue "<< rent << " con lai "<< CD_selected.quantity << std::endl;
+      }else {
+        for (int i = 0; i < n; i++){
+          CD_selected.CDsales();
+        };
+      std::cout << CD_selected.name << " da cho thue "<< n << " con lai "<< CD_selected.quantity << std::endl;
+      };
       break;
     }
     case 3:{
@@ -47,6 +67,7 @@ void action2(CD CD_selected){
       for (int i = 0; i < n; i++){
         CD_selected.CDreturn();
       }
+      std::cout << CD_selected.name << " da tra lai "<< n << " con lai "<< CD_selected.quantity << std::endl;
       break;
     }
     case 4:{
@@ -62,7 +83,7 @@ void action2(CD CD_selected){
     }
     default:{
       std::cout << "Khong hop le, moi nhap lai" << std::endl;
-      //goto Choice2;
+      goto Choice2;
     }
   }
 }
