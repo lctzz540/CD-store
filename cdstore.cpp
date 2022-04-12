@@ -23,41 +23,46 @@ void action2(CD CD_selected){
   std::cin >> selected;
   switch (selected) {
     case 1:{
-      std::cout << "So luong:" << std::endl;
+      std::cout << "So luong: " << std::endl;
       int n;
       std::cin >> n;
       for (int i = 0; i < n; i++){
         CD_selected.CDsales();
       }
+      break;
     }
     case 2:{
-      std::cout << "So luong:" << std::endl;
+      std::cout << "So luong: " << std::endl;
       int n;
       cin >> n;
       for (int i = 0; i < n; i++){
         CD_selected.CDrental();
       }
+      break;
     }
     case 3:{
-      std::cout << "So luong:" << std::endl;
+      std::cout << "So luong: " << std::endl;
       int n;
       cin >> n;
       for (int i = 0; i < n; i++){
         CD_selected.CDreturn();
       }
+      break;
     }
     case 4:{
-      std::cout << "Doanh thu cua CD la:" << CD_selected.current_revenue << std::endl;
+      std::cout << "Doanh thu cua CD la: " << CD_selected.current_revenue << std::endl;
+      break;
     }
     case 5:{
-      cout << CD_selected.name << "hien dang cho thue" << CD_selected.for_rent << "CD" << std::endl;
+      cout << CD_selected.name << " hien dang cho thue " << CD_selected.for_rent << " CD" << std::endl;
+      break;
     }
     case 6:{
       break;
     }
     default:{
       std::cout << "Khong hop le, moi nhap lai" << std::endl;
-      goto Choice2;
+      //goto Choice2;
     }
   }
 }

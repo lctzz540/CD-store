@@ -13,6 +13,7 @@ CD::CD(){
   std::cin >> this->quantity;
   this->rented = 0;
   this->sold = 0;
+  this->for_rent = 0;
 }
 //Phuong thuc cho thue
 void CD::CDrental(){
