@@ -26,7 +26,7 @@ void action2(CD CD_selected){
       std::cout << "So luong: " << std::endl;
       int n;
       std::cin >> n;
-      if (n > CD_selected.quantity){
+      if (n > CD_selected.quantity || CD_selected.quantity == 0){
         std::cout << "Khong du hang, con thieu " << n - CD_selected.quantity << std::endl;
         int sale = CD_selected.quantity;
         for (int i = 0; i < sale; i++){
@@ -45,7 +45,7 @@ void action2(CD CD_selected){
       std::cout << "So luong: " << std::endl;
       int n;
       cin >> n;
-      if (n > CD_selected.quantity){
+      if (n > CD_selected.quantity || CD_selected.quantity == 0){
         std::cout << "Khong du hang, con thieu " << n - CD_selected.quantity << std::endl;
         int rent = CD_selected.quantity;
         for (int i = 0; i < rent; i++){
@@ -91,7 +91,7 @@ void action2(CD CD_selected){
 //Menu 2
 void actionmenu2(CD CD_selected){
   std::cout << "==============================================" << std::endl;
-  std::cout << "CD ban chon la" << CD_selected.name << std::endl;
+  std::cout << "CD ban chon la: " << CD_selected.name << std::endl;
   std::cout << "1. Ban CD" << std::endl;
   std::cout << "2. Cho thue CD" << std::endl;
   std::cout << "3. Tra lai CD" << std::endl;
@@ -106,16 +106,17 @@ void actionmenu2(CD CD_selected){
 //Duyet map va in ten CD
 void dump(map<string,CD>& mp){
   for (auto x: mp) {
-    std::cout << x.first << std::endl;
+    std::cout << x.first << "; so luong: " << x.second.quantity << "; gia ban: " << x.second.price << "; gia thue: "<< x.second.rent_price << std::endl;
   }
 }
 
 //Tinh tong cong doanh thu
 void totalcal(map<string,CD>& mp){
-  float total = 0;
+  int total = 0;
   for (auto x: mp) {
     total += x.second.current_revenue;
   };
+  std::cout << total << std::endl;
 }
 
 int main (int argc, char *argv[])

@@ -20,7 +20,7 @@ void CD::CDrental(){
   if (this->quantity != 0) {
     this->rented ++;
     this->quantity --;
-    this->current_revenue = this->rented * this->rent_price + this->sold*this->price;
+    this->current_revenue = (this->rented * this->rent_price) + (this->sold * this->price);
     this->for_rent ++;
   }else {
     std::cout << "Sorry this CD is no longer available" << std::endl;
@@ -31,7 +31,7 @@ void CD::CDsales(){
   if(this->quantity != 0){
     this->sold ++;
     this->quantity --;
-    this->current_revenue = this->rented * this->rent_price + this->sold*this->price;
+    this->current_revenue = (this->rented * this->rent_price) + (this->sold * this->price);
   }
   else{
     std::cout << "Sorry this CD is no longer available" << std::endl;
